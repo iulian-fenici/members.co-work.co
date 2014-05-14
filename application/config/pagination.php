@@ -1,0 +1,20 @@
+<?php
+$config['pagination_default'] = array(
+    'per_page' => 30,
+    'cur_tag_open' => '<li class="active"><a href="#">',
+    'cur_tag_close' => '</a></li>',
+    'first_tag_open' => '<li>',
+    'first_tag_close' => '</li>',
+    'last_tag_open' => '<li>',
+    'last_tag_close' => '</li>',
+    'num_tag_open' => '<li>',
+    'num_tag_close' => '</li>',        
+    'next_link' => 'Next &rarr;',
+    'next_tag_open' => '<li>',
+    'next_tag_close' => '</li>',
+    'prev_link' => '&larr; Previous',
+    'prev_tag_open' => '<li class="prev">',
+    'prev_tag_close' => '</li>',
+    'page_query_string' => true,
+    'query_string_segment' => 'page',    
+);

@@ -1,0 +1,105 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+    });
+</script>
+<div class="row-fluid">
+    <div class="row-fluid" style="margin-bottom: 20px;">
+        <div class="span12">    
+            <div style="float: left">
+                <a href="/admin/announcement/add_announcement" class="uibutton large confirm">Add announcement</a>
+            </div>
+            <div style="float: right">
+                <?php $this->utility->draw_search_form('announcements_list', '/admin/announcement/announcements_list?'); ?>
+            </div>  
+        </div>
+    </div>
+    <div class="row-fluid" >
+        <div class="span12 widget clearfix">
+            <div class="widget-header">
+                <span>
+                    <i class="icon-list"></i>
+                    Announcements
+                </span>
+            </div>
+            <div class="widget-content">
+                <table class="table table-striped">
+                    <col span="1"/>
+                    <col span="1"/>
+                    <col span="1" width="160"/>
+                    <col span="1"/>
+                    <col span="1"/>
+                    <col span="1"/>
+                    <col span="1"/>
+                    <thead>
+                        <tr>
+                            <?php
+                            echo $this->utility->draw_table_header(
+                                    '/admin/announcement/announcements_list', array(
+                                'announcement_title' => 'Subject',
+                                'announcement_description' => 'Description'
+                                    )
+                            );
+                            ?>
+                            <th>Dates</th>
+                            <th>Comments</th>
+                            <th>User</th>
+                            <th>Active</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (isset($announcements) && !empty($announcements)): ?>
+                            <?php foreach ($announcements as $announcement): ?>                        
+                                <tr class="announcement_row">
+                                    <td>                                
+                                        <?php echo isset($announcement['title']) && !empty($announcement['title']) ? _e($announcement['title']) : ''; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo isset($announcement['description']) && !empty($announcement['description']) ? _e($announcement['description']) : ''; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo isset($announcement['date_from']) && !empty($announcement['date_from']) && $announcement['date_from'] != '0000-00-00 00:00:00' ? date('d/m/Y', strtotime($announcement['date_from'])) : '...'; ?> - 
+                                        <?php echo isset($announcement['date_till']) && !empty($announcement['date_till']) && $announcement['date_till'] != '0000-00-00 00:00:00' ? date('d/m/Y', strtotime($announcement['date_till'])) : '...'; ?>
+                                    </td>
+                                    <td>
+                                        <a href="/admin/announcement/view/<?php echo $announcement['id'] ?>"><?php echo $announcement['comments_count'] ?></a>
+                                    </td>
+                                    <td>
+                                       <?php echo isset($announcement['username']) && !empty($announcement['username']) ? $announcement['username'] : '' ?>
+                                    </td>
+                                    <td>
+                                        <?php echo isset($announcement['active']) && !empty($announcement['active']) ? 'active' : 'not active'; ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?php echo '/admin/announcement/edit_announcement/' . $announcement['id']; ?>"><i class="icon-pencil"></i></a>
+                                        <?php if (isset($announcement['active']) && !empty($announcement['active'])): ?>
+                                            <a href="<?php echo '/admin/announcement/change_announcement_activity/' . $announcement['id'] . '/' . 0; ?>"><i class="icon-ban-circle"></i></a>
+                                        <?php else: ?>
+                                            <a href="<?php echo '/admin/announcement/change_announcement_activity/' . $announcement['id'] . '/' . 1; ?>"><i class="icon-chevron-down"></i></a>
+                                        <?php endif; ?>
+                                        <a href="<?php echo '/admin/announcement/delete_announcement/' . $announcement['id']; ?>" onclick="return confirm('Are you sure you want delete this announcement ?')"><i class="icon-trash"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="6" style="text-align:center">
+                                    <h4>No announcements found</h4>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+            <?php if (isset($pagination) && !empty($pagination)): ?>
+                <div class="pagination">
+                    <ul>
+                        <?php echo $pagination; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+

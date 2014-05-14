@@ -1,0 +1,62 @@
+div.multi-step ol > li.current .title {				/* current title text color */
+	color:#fff;
+}
+div.multi-step ol > li .title {						/* title text color */
+	color:#06c;
+}
+div.multi-step ol > li .subtitle {					/* subtitle text color */
+	color:#525c66;
+}
+
+
+div.multi-step.numbered ol > li .wrap:before {		/* step number, background, border and text color */ 
+	background:#333;
+	border-color:#fff;
+	color:#fff;
+}
+
+
+div.multi-step.color-1 ol > li,
+div.multi-step.color-1 ol > li:before {				/* default step background */
+	background-image:url(../img/colors/blue.png);
+}
+div.multi-step.color-1 ol > li.current,
+div.multi-step.color-1 ol > li.current:before {		/* the active step */
+	background-image:url(../img/colors/blue_active.png);
+}
+
+div.multi-step.color-2 ol > li,
+div.multi-step.color-2 ol > li:before {
+	background-image:url(../img/colors/green.png);
+}
+div.multi-step.color-2 ol > li.current,
+div.multi-step.color-2 ol > li.current:before {
+	background-image:url(../img/colors/green_active.png);
+}
+
+div.multi-step.color-3 ol > li,
+div.multi-step.color-3 ol > li:before {
+	background-image:url(../img/colors/red.png);
+}
+div.multi-step.color-3 ol > li.current,
+div.multi-step.color-3 ol > li.current:before {
+	background-image:url(../img/colors/red_active.png);
+}
+
+div.multi-step.color-4 ol > li,
+div.multi-step.color-4 ol > li:before {
+	background-image:url(../img/colors/grey.png);
+}
+div.multi-step.color-4 ol > li.current,
+div.multi-step.color-4 ol > li.current:before {
+	background-image:url(../img/colors/grey_active.png);
+}
+
+div.multi-step.color-5 ol > li,
+div.multi-step.color-5 ol > li:before {
+	background-image:url(../img/colors/orange.png);
+}
+div.multi-step.color-5 ol > li.current,
+div.multi-step.color-5 ol > li.current:before {
+	background-image:url(../img/colors/orange_active.png);
+}

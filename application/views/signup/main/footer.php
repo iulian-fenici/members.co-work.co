@@ -1,0 +1,1 @@
+   <p class="muted credit">&copy; LBM 2012</p> 
